@@ -1,0 +1,114 @@
+#app {
+  .sidebar-container{
+    transition: width 0.28s;
+    width: $sideBarWidth;
+    font-weight: 600;
+    background: $menuBg;
+    
+
+    .el-menu {
+      border: none;
+      height: 100%;
+      width: 100% !important;
+    }
+
+    .el-menu-item, .el-submenu__title{
+      height: 46px;
+      line-height: 46px;
+    }
+
+    // menu hover
+    .submenu-title-noDropdown,
+    .el-submenu__title {
+      &:hover {
+        background-color: $menuHover !important;
+      }
+    }
+
+    .is-active>.el-submenu__title {
+      color: $subMenuActiveText !important;
+    }
+
+    & .nest-menu .el-submenu>.el-submenu__title,
+    & .el-submenu .el-menu-item {
+      min-width: $sideBarWidth !important;
+      background-color: $subMenuBg !important;
+
+      &:hover {
+        background-color: $subMenuHover !important;
+      }
+    }
+
+    .fold-warpper{
+      transition: width 0.28s;
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      padding: 5px 0;
+      width: $sideBarWidth;
+      text-align: center;
+      height: 30px;
+      line-height: 30px;
+      font-size: 20px;
+      color: #fff;
+      background: rgb(63, 62, 62);
+      cursor: pointer;
+    }
+
+  }
+
+  .hideSidebar {
+    .sidebar-container, 
+    .fold-warpper {
+      width: 54px !important;
+    }
+
+    .submenu-title-noDropdown {
+      padding: 0 !important;
+      position: relative;
+
+      .el-tooltip {
+        padding: 0 !important;
+
+        .svg-icon,
+        i {
+          margin-left: 15px;
+        }
+      }
+    }
+
+    .el-submenu {
+      overflow: hidden;
+
+      &>.el-submenu__title {
+        padding: 0 !important;
+
+        .svg-icon ,i{
+          margin-left: 15px;
+        }
+
+        .el-submenu__icon-arrow {
+          display: none;
+        }
+      }
+    }
+
+    .el-menu--collapse {
+      .el-submenu {
+        &>.el-submenu__title {
+          &>span {
+            height: 0;
+            width: 0;
+            overflow: hidden;
+            visibility: hidden;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+  a{
+    text-decoration: none;
+  }
+}
